@@ -1,7 +1,7 @@
 <h1><strong>ENV</strong></h1>
 
 ```
-PORT = 808
+PORT = 8080
 ADDRESS = http://127.0.0.1
 
 MYSQL_HOST = 
@@ -11,5 +11,9 @@ MYSQL_DATABASE =
 
 
 SESSION_SECRET = 
-SESSION_SECURE = false     #if use https change true
+SESSION_SECURE = false
+
+DEV_MODE = true
+
+MONGO_CONNECTION_STRING = 
 ```
