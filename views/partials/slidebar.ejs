@@ -1,0 +1,66 @@
+<aside class="aside is-placed-left is-expanded">
+    <!--
+      <div class="aside-tools">
+        <div class="aside-tools-label">
+          <span><b>Admin</b> One HTML</span>
+        </div>
+      </div>
+    -->
+    <div class="menu is-menu-main">
+      <p class="menu-label">เมนูหน้าต่างจัดการ</p>
+      <ul class="menu-list">
+        <li>
+          <a href="/p/overview" class="has-icon">
+            <span class="icon"><i class="fa-solid fa-gauge"></i></span>
+            <span class="menu-item-label">ภาพรวม</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Login / Logout -->
+      <p class="menu-label">เข้าสู่ระบบ / ออกจากระบบ</p>
+      <ul class="menu-list">
+        <% if(!session.is_login){ %>
+          <li>
+            <a href="/p/login" class="has-icon">
+              <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+              <span class="menu-item-label">เข้าสู่ระบบ</span>
+            </a>
+          </li>
+        <% } else { %>
+          <li>
+            <a href="/p/login" class="has-icon">
+              <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+              <span class="menu-item-label">ออกจากระบบ</span>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+      <!-- Login / Logout -->
+    </div>
+</aside>
+  
+  
+  <!-- Submenu
+  <li>
+          <a class="has-icon has-dropdown-icon">
+            <span class="icon"><i class="mdi mdi-view-list"></i></span>
+            <span class="menu-item-label">Submenus</span>
+            <div class="dropdown-icon">
+              <span class="icon"><i class="mdi mdi-plus"></i></span>
+            </div>
+          </a>
+          <ul>
+            <li>
+              <a href="#void">
+                <span>Sub-item One</span>
+              </a>
+            </li>
+            <li>
+              <a href="#void">
+                <span>Sub-item Two</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+  -->

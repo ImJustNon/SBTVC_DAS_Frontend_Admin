@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="has-aside-left has-aside-mobile-transition has-navbar-fixed-top has-aside-expanded">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Title -->
+    <title>[ SBTVC-DAS ] - 2.0 | ADMIN</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
+
+    <!-- Main Css -->
+    <!-- Bulma -->
+    <link rel="stylesheet" href="../libs/bulma/css/main.min.css">
+    <!-- CSS File -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- materialdesignicons -->
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+    <!-- Main Css -->
+
+    <!-- script -->
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- script -->
+
+  
+
+</head>
+<body>
+    <!-- Import script -->
+    <%- include("./partials/script.ejs") %>
+    <!-- Import script -->
+
+    <div class="app">
+        <!--navbar-->
+        <%- include("./partials/navbar.ejs") %> 
+        <!--slide bar-->
+        <%- include("./partials/slidebar.ejs") %>
+
+
+        <!-- PAGE -->
+        <% if(PAGE == "LOGIN"){ %>
+            <%- include("./pages/login.ejs") %>
+        <% } else if(PAGE == "OVERVIEW"){ %>
+            <%- include("./pages/overview.ejs") %>
+        <% } %>
+        
+    </div>
+
+    <!-- script -->
+    <script type="text/javascript" src="../libs/bulma/js/main.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script type="text/javascript" src="../js/chart.sample.min.js"></script>
+    <!-- script -->
+</body>
+</html>

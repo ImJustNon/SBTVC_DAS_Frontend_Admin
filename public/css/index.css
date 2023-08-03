@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Prompt&display=swap');
+
+* {
+    font-family: 'Prompt', sans-serif;
+}
+
+.logo {
+    width: 5%;
+    height: auto;
+    margin: 8px;
+}
+
+@media (max-width: 900px){ 
+    .logo {
+        width: 10%;
+        height: auto;
+        margin: 8px;
+    }
+}

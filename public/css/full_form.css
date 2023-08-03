@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+* {
+    font-family: 'Prompt', sans-serif;
+}
+
+
+.container {
+    margin: 20px;
+}
+
+.student_info {
+    font-size: 20px;
+}
+
+.reg_type {
+    font-size: 20px;
+}
+
+.leave_come {
+    font-size: 20px;
+}
+
+.photo_desktop {
+    border-radius: 7px;
+    width: 20%;
+}
+.photo_mobile {
+    border-radius: 7px;
+    width: 100%;
+    display: none;
+    margin-top: 10px;
+}
+
+.timestamp {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    text-align: right;
+}
+
+#back_in_btn {
+    font-size: 15px;
+}
+
+@media (max-width : 900px){
+    .photo_desktop {
+        display: none;
+    }
+    .photo_mobile {
+        display: block;
+    }
+    .timestamp {
+        margin-top: 15px;
+        text-align: left;
+    }
+    #back_in_btn {
+        margin-top: 7px;
+    }
+}
