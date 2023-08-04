@@ -1,42 +1,42 @@
 <aside class="aside is-placed-left is-expanded">
     <!--
-      <div class="aside-tools">
+    <div class="aside-tools">
         <div class="aside-tools-label">
-          <span><b>Admin</b> One HTML</span>
+        <span><b>Admin</b> One HTML</span>
         </div>
-      </div>
+    </div>
     -->
     <div class="menu is-menu-main">
-      <p class="menu-label">เมนูหน้าต่างจัดการ</p>
-      <ul class="menu-list">
+    <p class="menu-label">เมนูหน้าต่างจัดการ</p>
+    <ul class="menu-list">
         <li>
-          <a href="/p/overview" class="has-icon">
+        <a href="/p/overview" class="has-icon">
             <span class="icon"><i class="fa-solid fa-gauge"></i></span>
             <span class="menu-item-label">ภาพรวม</span>
-          </a>
+        </a>
         </li>
-      </ul>
+    </ul>
 
-      <!-- Login / Logout -->
-      <p class="menu-label">เข้าสู่ระบบ / ออกจากระบบ</p>
-      <ul class="menu-list">
+    <!-- Login / Logout -->
+    <p class="menu-label">เข้าสู่ระบบ / ออกจากระบบ</p>
+    <ul class="menu-list">
         <% if(!session.is_login){ %>
-          <li>
+        <li>
             <a href="/p/login" class="has-icon">
-              <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
-              <span class="menu-item-label">เข้าสู่ระบบ</span>
+            <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+            <span class="menu-item-label">เข้าสู่ระบบ</span>
             </a>
-          </li>
+        </li>
         <% } else { %>
-          <li>
-            <a href="/p/login" class="has-icon">
-              <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
-              <span class="menu-item-label">ออกจากระบบ</span>
+        <li>
+            <a href="#!" id="logout_btn" class="has-icon">
+            <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+            <span class="menu-item-label">ออกจากระบบ</span>
             </a>
-          </li>
+        </li>
         <% } %>
-      </ul>
-      <!-- Login / Logout -->
+    </ul>
+    <!-- Login / Logout -->
     </div>
 </aside>
   
@@ -64,3 +64,42 @@
           </ul>
         </li>
   -->
+
+<% if(session.is_login){ %>
+    <script>
+        const button_logout_button = document.getElementById("logout_btn");
+        button_logout_button.addEventListener("click", () =>{
+            swal({
+                title: "ต้องการจะออกจากระบบหรือไม่",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((ok) =>{
+                if(ok){
+                    axios.post("/api/admin/login/remove_login").then(response =>{
+                        if(response.data.status === "SUCCESS"){
+                            swal({
+                                title: "ออกจากระบบ สำเร็จ",
+                                text: "คลิก OK เพื่อ รีโหลดหน้านี้",
+                                icon: "success",
+                            })
+                            .then(() => {
+                                window.location.reload();
+                            });
+                        }
+                        else {
+                            swal({
+                                title: "เกิดบางอย่างผิดพลาด",
+                                text: "โปรดลองใหมในภายหลัง",
+                                icon: "error",
+                            })
+                            .then(() => {
+                                window.location.reload();
+                            });
+                        }
+                    });
+                } 
+            });
+        });
+    </script>
+<% } %>

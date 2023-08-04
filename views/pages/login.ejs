@@ -1,1 +1,91 @@
-<h1>Login</h1>
+<section class="section is-main-section">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+          &nbsp&nbspเข้าสู่ระบบ
+        </p>
+      </header>
+      <div class="card-content">
+        <form>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">ไอดีผู้ดูเเล (Admin ID)</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input type="number" name="admin_id" id="input_admin_id" class="input" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">รหัสผู้ดูเเล (Admin Password)</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input type="text" name="admin_password" id="input_admin_password" class="input" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal"></div>
+                <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <button type="button" id="submit_btn" class="button is-primary"><i class="fa-solid fa-right-to-bracket"></i>&nbsp&nbsp ยืนยัน</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+</section>
+
+
+<script>
+    // input element
+    const input_admin_id = document.getElementById("input_admin_id");
+    const input_admin_password = document.getElementById("input_admin_password");
+    // button
+    const button_submit_button = document.getElementById("submit_btn");
+
+    button_submit_button.addEventListener("click", async() =>{
+        try {
+            const response = await axios.post('/api/admin/login/auth', {
+                admin_id: input_admin_id.value,
+                admin_password: input_admin_password.value,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if(response.data.status === "FAIL"){
+                notyf.error(response.data.error);
+                console.log(response.data.error);
+                return;
+            }
+
+            swal({
+                title: "เข้าสู่ระบบ สำเร็จ",
+                text: "คลิก OK เพื่อ รีโหลดหน้านี้",
+                icon: "success",
+            }).then(() => {
+                window.location.reload();
+            });
+        }
+        catch (err){
+            notyf.error(err);
+            console.log(err);
+        }
+    });
+</script>
