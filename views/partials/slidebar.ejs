@@ -7,36 +7,84 @@
     </div>
     -->
     <div class="menu is-menu-main">
-    <p class="menu-label">เมนูหน้าต่างจัดการ</p>
-    <ul class="menu-list">
-        <li>
-        <a href="/p/overview" class="has-icon">
-            <span class="icon"><i class="fa-solid fa-gauge"></i></span>
-            <span class="menu-item-label">ภาพรวม</span>
-        </a>
-        </li>
-    </ul>
-
-    <!-- Login / Logout -->
-    <p class="menu-label">เข้าสู่ระบบ / ออกจากระบบ</p>
-    <ul class="menu-list">
-        <% if(!session.is_login){ %>
-        <li>
-            <a href="/p/login" class="has-icon">
-            <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
-            <span class="menu-item-label">เข้าสู่ระบบ</span>
-            </a>
-        </li>
-        <% } else { %>
-        <li>
-            <a href="#!" id="logout_btn" class="has-icon">
-            <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
-            <span class="menu-item-label">ออกจากระบบ</span>
-            </a>
-        </li>
-        <% } %>
-    </ul>
-    <!-- Login / Logout -->
+        <!-- Home menu -->
+        <p class="menu-label">เมนูหลัก</p>
+        <ul class="menu-list">
+            <li>
+                <a href="/p/overview" class="has-icon">
+                    <span class="icon"><i class="fa-solid fa-globe"></i></span>
+                    <span class="menu-item-label">ภาพรวม</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Home menu -->
+        <!-- User management -->
+        <p class="menu-label">เมนูจัดการผู้ใช้</p>
+        <ul class="menu-list">
+            <li>
+                <a class="has-icon has-dropdown-icon">
+                    <span class="icon"><i class="fa-solid fa-bars"></i></span>
+                    <span class="menu-item-label">เเสดงผู้ใช้ทั้งหมด</span>
+                    <div class="dropdown-icon">
+                        <span class="icon"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/p/users?branch=INFORMATION_TECHNOLOGY">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span> เทคโนโลยีสารสนเทศ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/p/users?branch=ELECTRICAL_TECHNOLOGY">
+                            <span class="icon"><i class="fa-solid fa-user"></i></span> เทคโนโลยีไฟฟ้า
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/p/users?branch=ELECTRONIC">
+                            <span class="icon"><i class="fa-solid fa-user"></i></span> อิดล็กทรอนิกส์
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/p/users?branch=MECHATRONIC">
+                            <span class="icon"><i class="fa-solid fa-user"></i></span> เมคคาทรอนิกส์
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/p/users?branch=PREMIUM">
+                            <span class="icon"><i class="fa-solid fa-user"></i></span> พรีเมียม
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/p/manage-user" class="has-icon">
+                    <span class="icon"><i class="fa-solid fa-user-gear"></i></span>
+                    <span class="menu-item-label">จัดการผู้ใช้</span>
+                </a>
+            </li>
+        </ul>
+        <!-- User management -->        
+        <!-- Login / Logout -->
+        <p class="menu-label">เข้าสู่ระบบ / ออกจากระบบ</p>
+        <ul class="menu-list">
+            <% if(!session.is_login){ %>
+            <li>
+                <a href="/p/login" class="has-icon">
+                <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+                <span class="menu-item-label">เข้าสู่ระบบ</span>
+                </a>
+            </li>
+            <% } else { %>
+            <li>
+                <a href="#!" id="logout_btn" class="has-icon">
+                <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+                <span class="menu-item-label">ออกจากระบบ</span>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+        <!-- Login / Logout -->
     </div>
 </aside>
   
@@ -65,6 +113,8 @@
         </li>
   -->
 
+
+<!--  Logout script -->
 <% if(session.is_login){ %>
     <script>
         const button_logout_button = document.getElementById("logout_btn");

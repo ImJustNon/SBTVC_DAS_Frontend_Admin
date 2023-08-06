@@ -1,0 +1,53 @@
+<section class="section is-main-section">
+    <div class="card has-table">
+        <header class="card-header">
+            <!-- title ตาราง -->
+            <p class="card-header-title" id="table_title"> 
+                <span class="icon"><i class="fa-solid fa-user"></i></span> Users
+            </p>
+            <!-- title ตาราง -->
+            <a class="card-header-icon" id="reload_btn">
+                <span class="icon"><i class="mdi mdi-reload"></i></span>
+            </a>
+        </header>
+        <div class="card-content">
+            <div class="b-table has-pagination">
+                <div class="table-wrapper has-mobile-cards">
+                    <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>คำนำหน้า</th>
+                                <th>ชื่อ</th>
+                                <th>นามสกุล</th>
+                                <th>เลขประจำตัวนักเรียน</th>
+                                <th>สาขา</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let i = 0; i < data.users_data.length; i++){ %>
+                                <tr>
+                                    <td></td>
+                                    <td data-label="ID" class="has-text-grey is-abbr-like"><%= data.users_data[i].id %></td>
+                                    <td data-label="คำนำหน้า" class="has-text-grey is-abbr-like"><%= data.users_data[i].student_prefix %></td>
+                                    <td data-label="ชื่อ" class="has-text-grey is-abbr-like"><%= data.users_data[i].student_name %></td>
+                                    <td data-label="นามสกุล" class="has-text-grey is-abbr-like"><%= data.users_data[i].student_lastname %></td>
+                                    <td data-label="เลขประจำตัว" class="has-text-grey is-abbr-like"><%= data.users_data[i].student_id %></td>
+                                    <td data-label="สาขา" class="has-text-grey is-abbr-like"><%= data.users_data[i].student_reg_type %></td>
+                                    <td></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const branch = "<%= data.branch %>";
+</script>
+<script src="../js/users_page.js"></script>
