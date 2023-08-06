@@ -7,10 +7,6 @@ const axios = require("axios");
 
 
 router.get("/p/manage-user", check_login, async(req, res) =>{
-    const { branch } = req.query ?? {};
-
-
-
     return res.render("index.ejs", {
         PAGE: "MANAGE_USER",  
         session: {
