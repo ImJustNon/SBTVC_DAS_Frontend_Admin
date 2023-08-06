@@ -78,7 +78,7 @@ router.post("/api/admin/page/overview/student_user_count", urlEncoded, async(req
                 error: null,
                 data: {
                     student_user_count: student_user_count,
-                    current_login: student_session_count > 0 ? student_session_count/2 : student_session_count,
+                    current_login: student_session_count > 0 ? parseInt(student_session_count/2) : student_session_count,
                     information_technology_count: information_technology_count,
                     electrical_technology_count: electrical_technology_count,
                     electronic_count: electronic_count,
