@@ -10,12 +10,12 @@ router.get("/p/manage-form", check_login, async(req, res) =>{
     const { filter } = req.query ?? {};
 
     if(!filter){
-        await NoFilter();
+        await NoFilter(req, res);
     }
 });
 
 
-async function NoFilter(){
+async function NoFilter(req, res){
     return res.render("index.ejs", {
         PAGE: "MANAGE_FORM",  
         filter: "NO_FILTER",
@@ -26,7 +26,7 @@ async function NoFilter(){
     });
 }
 
-async function FilterNotOutAuth(){
+async function FilterNotOutAuth(req, res){
     return res.render("index.ejs", {
         PAGE: "MANAGE_FORM",  
         filter: "FILTER_NOT_OUT_AUTH",
@@ -37,7 +37,7 @@ async function FilterNotOutAuth(){
     });
 }
 
-async function FilterNotAllow(){
+async function FilterNotAllow(req, res){
     return res.render("index.ejs", {
         PAGE: "MANAGE_FORM",  
         filter: "FILTER_NOT_ALLOW",
@@ -48,7 +48,7 @@ async function FilterNotAllow(){
     });
 }
 
-async function FilterNotInAuth(){
+async function FilterNotInAuth(req, res){
     return res.render("index.ejs", {
         PAGE: "MANAGE_FORM",  
         filter: "FILTER_NOT_IN_AUTH",
@@ -59,7 +59,7 @@ async function FilterNotInAuth(){
     });
 }
 
-async function FilterNotBackIn(){
+async function FilterNotBackIn(req, res){
     return res.render("index.ejs", {
         PAGE: "MANAGE_FORM",  
         filter: "FILTER_NOT_BACKIN",
