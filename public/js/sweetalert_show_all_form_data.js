@@ -11,7 +11,8 @@ async function showMore(student_id){
         Swal.fire({
             imageUrl: response.data.data.results[0].image_link,
             imageAlt: 'upload_image',
-            html: `ID  :: <strong>${response.data.data.results[0].id}</strong> <br />`
+            html:   `*************************************** <br /><strong>ข้อมูลเเบบฟอร์มทั้งหมด</strong><br /> *************************************** <br />`
+                    + `ID  :: <strong>${response.data.data.results[0].id}</strong> <br />`
                     + `เลขนักเรียน  :: <strong>${response.data.data.results[0].student_id}</strong> <br />`
                     + `ชื่อ  ::  <strong>${response.data.data.results[0].student_prefix} ${response.data.data.results[0].student_name} ${response.data.data.results[0].student_lastname}</strong> <br />`
                     + `ปี  :: <strong>${response.data.data.results[0].student_year_level}</strong> <br />`
@@ -28,13 +29,13 @@ async function showMore(student_id){
                     + `ชื่อผู้ปกครอง  :: <strong>${response.data.data.results[0].parent_name} ${response.data.data.results[0].parent_lastname}</strong> <br />`
                     + `เบอร์ผู้ปกครอง  :: <strong>${response.data.data.results[0].parent_phone_number}</strong> <br />`
                     + `Timestamp  :: <strong>${response.data.data.results[0].timestamp}</strong> <br />`
-                    + `************* การยืนยัน ************* <br />`
-                    + `สถานที่ยืนยัน (ออก)  :: <strong>${response.data.data.results[0].out_location_auth === "true" ? "ยืนยันเเล้ว" : "ยังไม่ได้ยืนยัน"}</strong> <br />`
-                    + `อนุมัติ  :: <strong>${response.data.data.results[0].allow === "true" ? "อนุมัติเเล้ว" : "ยังไม่อนุมัติ"}</strong> <br />`
-                    + `สถานที่ยืนยัน (เข้า)  :: <strong>${response.data.data.results[0].in_location_auth === "true" ? "ยืนยันเเล้ว" : "ยังไม่ได้ยืนยัน"}</strong> <br />`
-                    + `กลับเเล้ว  :: <strong>${response.data.data.results[0].backin === "true" ? "ใช่" : "ไม่"}</strong> <br />`
+                    + `*************************************** <br /><strong>การยืนยัน</strong><br /> *************************************** <br />`
+                    + `สถานที่ยืนยัน (ออก)  :: <strong>${response.data.data.results[0].out_location_auth === "true" ? "✅ ยืนยันเเล้ว" : "❌ ยังไม่ได้ยืนยัน"}</strong> <br />`
+                    + `อนุมัติ  :: <strong>${response.data.data.results[0].allow === "true" ? "✅ อนุมัติเเล้ว" : "❌ ยังไม่อนุมัติ"}</strong> <br />`
+                    + `สถานที่ยืนยัน (เข้า)  :: <strong>${response.data.data.results[0].in_location_auth === "true" ? "✅ ยืนยันเเล้ว" : "❌ ยังไม่ได้ยืนยัน"}</strong> <br />`
+                    + `กลับเเล้ว  :: <strong>${response.data.data.results[0].backin === "true" ? "✅ ใช่" : "❌ ไม่"}</strong> <br />`
         }); 
-        console.log("Show more form data : success")
+        console.log("Show more form data : success");
     }
     catch(err){
         console.log(err);
