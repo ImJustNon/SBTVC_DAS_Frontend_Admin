@@ -9,7 +9,7 @@ const axios = require("axios");
 router.get("/p/manage-allow", check_login, async(req, res) =>{
     try{
         const response = await axios.post('https://sbtvc-das-api.nonlnwza.xyz/api/admin/form/get_form_data', {
-            filter: "FILTER_NOT_BACKIN",
+            filter: "FILTER_NOT_ALLOW",
         }, {
             headers: {
                 'Content-Type': 'application/json'
