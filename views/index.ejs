@@ -28,8 +28,8 @@
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- script -->
-
-  
+    <!-- SweetAlert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body>
@@ -53,8 +53,10 @@
             <%- include("./pages/users.ejs") %>
         <% } else if(PAGE == "MANAGE_USER"){ %>
             <%- include("./pages/manage_user.ejs") %>
-        <% } else if(PAGE == "MANAGE_FORM"){ %>
-            <%- include("./pages/manage_form/index.ejs") %>
+        <% } else if(PAGE == "VIEW_ALL_FORM"){ %>
+            <%- include("./pages/view_all_form.ejs") %>
+        <% } else if(PAGE == "MANAGE_ALLOW"){ %>
+            <%- include("./pages/manage_allow.ejs") %>
         <% } %>
         
     </div>
