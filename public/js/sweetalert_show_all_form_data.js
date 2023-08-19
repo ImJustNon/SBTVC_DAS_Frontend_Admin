@@ -10,7 +10,7 @@ async function showMore(student_id){
 
         Swal.fire({
             imageUrl: response.data.data.results[0].image_link,
-            imageAlt: 'upload_image',
+            imageAlt: `${response.data.data.results[0].image_link}`,
             html:   `*************************************** <br /><strong>ข้อมูลเเบบฟอร์มทั้งหมด</strong><br /> *************************************** <br />`
                     + `ID  :: <strong>${response.data.data.results[0].id}</strong> <br />`
                     + `เลขนักเรียน  :: <strong>${response.data.data.results[0].student_id}</strong> <br />`
