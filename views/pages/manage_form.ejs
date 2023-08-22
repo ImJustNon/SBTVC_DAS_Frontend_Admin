@@ -1,4 +1,106 @@
-<!-- กุรู้มึงทำาได้ -->
-<main>    
-    <h1>Hello World</h1>
-</main>
+<section class="section is-main-section">
+    <div class="card has-table has-mobile-sort-spaced">
+        <header class="card-header">
+        <p class="card-header-title">
+            <span class="icon"><i class="fa-solid fa-table"></i></span>
+            &nbsp&nbspรายการเเบบฟอร์มในระบบ
+        </p>
+        <a class="card-header-icon" id="reload_btn">
+            <span class="icon"><i class="mdi mdi-reload"></i></span>
+        </a>
+        </header>
+        <div class="card has-table">
+        <div class="card-content">
+            <div class="b-table has-pagination">
+                <div class="table-wrapper has-mobile-cards">
+                    <table class="table is-fullwidth is-striped is-hoverable is-sortable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>เลขประจำตัวนักเรียน</th>
+                                <th>ชื่อ</th>
+                                <th>สาขา</th>
+                                <th>วันที่ออก</th>
+                                <th>วันที่เข้า</th>
+                                <th>สถานะยืนยัน(ออก)</th>
+                                <th>การให้อนุญาติ</th>
+                                <th>สถานะยืนยัน(เข้า)</th>
+                                <th>สถานะส่งฟอร์มกลับ</th>
+                                <th>ข้อมูลเพิ่มเติม</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- สร้าง ข้อมูลในตาราง -->
+                            <% for(let i = 0; i < data.results.length; i++){ %>
+                                <tr>
+                                    <td></td>
+                                    <td data-label="ID"></td>
+                                    <td data-label="เลขประจำตัวนักเรียน"></td>
+                                    <td data-label="ชื่อ"></td>
+                                    <td data-label="สาขา"></td>
+                                    <td data-label="วันที่ออก"></td>
+                                    <td data-label="วันที่เข้า"></td>
+                                    <td data-label="สถานะยืนยัน(ออก)" class="is-actions-cell">
+                                        <div class="buttons is-center">
+                                            <button class="button is-small is-primary" type="button" onclick="console.log('Hello')">
+                                                <span class="icon"><i class="fa-solid fa-check"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger" type="button" onclick="console.log('Hello')">
+                                                <span class="icon"><i class="fa-solid fa-x"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td data-label="การให้อนุญาติ" class="is-actions-cell">
+                                        <div class="buttons is-center">
+                                            <button class="button is-small is-primary" type="button" onclick="console.log('Hello')">
+                                                <span class="icon"><i class="fa-solid fa-check"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger" type="button" onclick="console.log('Hello')">
+                                                <span class="icon"><i class="fa-solid fa-x"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td data-label="สถานะยืนยัน(เข้า)" class="is-actions-cell">
+                                        <div class="buttons is-center">
+                                            <button class="button is-small is-primary" type="button" onclick="console.log('Hello')">
+                                                <span class="icon"><i class="fa-solid fa-check"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger" type="button" onclick="console.log('Hello')">
+                                                <span class="icon"><i class="fa-solid fa-x"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td data-label="สถานะส่งฟอร์มกลับ" class="is-actions-cell">
+                                        <div class="buttons is-center">
+                                            <button class="button is-small is-primary" type="button" onclick="console.log('Hello')">
+                                                <span class="icon"><i class="fa-solid fa-check"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger" type="button" onclick="console.log('Hello')">
+                                                <span class="icon"><i class="fa-solid fa-x"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td data-label="ข้อมูลเพิ่มเติม" class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-warning" type="button" onclick="showMore('<%= data.results[i].student_id %>')">
+                                                <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            <% } %>
+                            <!-- สร้าง ข้อมูลในตาราง End -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<script src="../js/manage_form_page.js"></script>
+<script src="../js/sweetalert_show_all_form_data.js"></script>
