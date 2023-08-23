@@ -36,54 +36,55 @@
                             <% for(let i = 0; i < data.results.length; i++){ %>
                                 <tr>
                                     <td></td>
-                                    <td data-label="ID"></td>
-                                    <td data-label="เลขประจำตัวนักเรียน"></td>
-                                    <td data-label="ชื่อ"></td>
-                                    <td data-label="สาขา"></td>
-                                    <td data-label="วันที่ออก"></td>
-                                    <td data-label="วันที่เข้า"></td>
-                                    <td data-label="สถานะยืนยัน(ออก)" class="is-actions-cell">
-                                        <div class="buttons is-center">
-                                            <button class="button is-small is-primary" type="button" onclick="console.log('Hello')">
+                                    <td data-label="ID"><%= data.results[i].id %></td>
+                                    <td data-label="เลขประจำตัวนักเรียน"><%= data.results[i].student_id %></td>
+                                    <td data-label="ชื่อ"><%= data.results[i].student_prefix %> <%= data.results[i].student_name %> <%= data.results[i].student_lastname %></td>
+                                    <td data-label="สาขา"><%= data.results[i].student_reg_type %></td>
+                                    <td data-label="วันที่ออก"><%= data.results[i].leave_date %></td>
+                                    <td data-label="วันที่เข้า"><%= data.results[i].come_date %></td>
+                                    <td data-label="สถานะยืนยัน(ออก)">
+                                        <span><%= data.results[i].out_location_auth === 'true' ? 'ยืนยันเเล้ว' : 'ยังไม่ได้ยืนยัน' %></span>
+                                        <div class="buttons is-left">
+                                            <button class="button is-small is-primary" type="button" onclick="UpdateOutLocationAuth('<%= data.results[i].student_id %>', 'true')">
                                                 <span class="icon"><i class="fa-solid fa-check"></i></span>
                                             </button>
-                                            <button class="button is-small is-danger" type="button" onclick="console.log('Hello')">
+                                            <button class="button is-small is-danger" type="button" onclick="UpdateOutLocationAuth('<%= data.results[i].student_id %>', 'false')">
                                                 <span class="icon"><i class="fa-solid fa-x"></i></span>
                                             </button>
                                         </div>
                                     </td>
-                                    <td data-label="การให้อนุญาติ" class="is-actions-cell">
-                                        <div class="buttons is-center">
-                                            <button class="button is-small is-primary" type="button" onclick="console.log('Hello')">
+                                    <td data-label="การให้อนุญาติ">
+                                        <span><%= data.results[i].allow === 'true' ? 'อนุญาติเเล้ว' : 'ยังไม่ได้อนุญาติ' %></span>
+                                        <div class="buttons is-left">                                           
+                                            <button class="button is-small is-primary" type="button" onclick="UpdateAllow('<%= data.results[i].student_id %>', 'true')">
                                                 <span class="icon"><i class="fa-solid fa-check"></i></span>
                                             </button>
-                                            <button class="button is-small is-danger" type="button" onclick="console.log('Hello')">
+                                            <button class="button is-small is-danger" type="button" onclick="UpdateAllow('<%= data.results[i].student_id %>', 'false')">
                                                 <span class="icon"><i class="fa-solid fa-x"></i></span>
                                             </button>
                                         </div>
                                     </td>
-                                    <td data-label="สถานะยืนยัน(เข้า)" class="is-actions-cell">
-                                        <div class="buttons is-center">
-                                            <button class="button is-small is-primary" type="button" onclick="console.log('Hello')">
+                                    <td data-label="สถานะยืนยัน(เข้า)">
+                                        <span><%= data.results[i].in_location_auth === 'true' ? 'ยืนยันเเล้ว' : 'ยังไม่ได้ยืนยัน' %></span>
+                                        <div class="buttons is-left">                                           
+                                            <button class="button is-small is-primary" type="button" onclick="UpdateInLocationAuth('<%= data.results[i].student_id %>', 'true')">
                                                 <span class="icon"><i class="fa-solid fa-check"></i></span>
                                             </button>
-                                            <button class="button is-small is-danger" type="button" onclick="console.log('Hello')">
+                                            <button class="button is-small is-danger" type="button" onclick="UpdateInLocationAuth('<%= data.results[i].student_id %>', 'false')">
                                                 <span class="icon"><i class="fa-solid fa-x"></i></span>
                                             </button>
                                         </div>
                                     </td>
-                                    <td data-label="สถานะส่งฟอร์มกลับ" class="is-actions-cell">
-                                        <div class="buttons is-center">
-                                            <button class="button is-small is-primary" type="button" onclick="console.log('Hello')">
+                                    <td data-label="สถานะส่งฟอร์มกลับ" >
+                                        <span><%= data.results[i].backin === 'true' ? 'ส่งเเล้ว' : 'ยังไม่ได้ส่ง' %></span>
+                                        <div class="buttons is-left">                                 
+                                            <button class="button is-small is-primary" type="button" onclick="UpdateConfirmBackin('<%= data.results[i].student_id %>', 'true')">
                                                 <span class="icon"><i class="fa-solid fa-check"></i></span>
-                                            </button>
-                                            <button class="button is-small is-danger" type="button" onclick="console.log('Hello')">
-                                                <span class="icon"><i class="fa-solid fa-x"></i></span>
                                             </button>
                                         </div>
                                     </td>
-                                    <td data-label="ข้อมูลเพิ่มเติม" class="is-actions-cell">
-                                        <div class="buttons is-right">
+                                    <td data-label="ข้อมูลเพิ่มเติม">
+                                        <div class="buttons is-left">
                                             <button class="button is-small is-warning" type="button" onclick="showMore('<%= data.results[i].student_id %>')">
                                                 <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
                                             </button>
