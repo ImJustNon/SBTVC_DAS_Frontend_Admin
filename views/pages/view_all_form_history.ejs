@@ -1,3 +1,72 @@
-<main>
-    <h1>view-all-form-history</h1>
-</main>
+<section class="section is-main-section">
+    <div class="card has-table has-mobile-sort-spaced">
+        <header class="card-header">
+        <p class="card-header-title">
+            <span class="icon"><i class="fa-solid fa-table"></i></span>
+            &nbsp&nbspรายการเเบบฟอร์มในระบบ
+        </p>
+        <a class="card-header-icon" id="reload_btn">
+            <span class="icon"><i class="mdi mdi-reload"></i></span>
+        </a>
+        </header>
+        <div class="card has-table">
+        <div class="card-content">
+            <div class="b-table has-pagination">
+                <div class="table-wrapper has-mobile-cards">
+                    <table class="table is-fullwidth is-striped is-hoverable is-sortable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>OLD ID</th>
+                                <th>เลขประจำตัวนักเรียน</th>
+                                <th>ชื่อ</th>
+                                <th>สาขา</th>
+                                <th>ปี</th>
+                                <th>เบอร์นักเรียน</th>
+                                <th>วันที่ออก</th>
+                                <th>วันที่เข้า</th>
+                                <th>เบอร์ผู้ปกครอง</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- สร้าง ข้อมูลในตาราง -->
+                            <% for(let i = 0; i < data.results.length; i++){ %>
+                                <tr>
+                                    <td></td>
+                                    <td data-label="ID"><%= data.results[i].id %></td>
+                                    <td data-label="OLD ID"><%= data.results[i].old_id %></td>
+                                    <td data-label="เลขประจำตัวนักเรียน"><%= data.results[i].student_id %></td>
+                                    <td data-label="ชื่อ"><%= data.results[i].student_prefix %> <%= data.results[i].student_name %> <%= data.results[i].student_lastname %></td>
+                                    <td data-label="สาขา"><%= data.results[i].student_reg_type %></td>
+                                    <td data-label="ปี"><%= data.results[i].student_year_level %></td>
+                                    <td data-label="เบอร์นักเรียน"><%= data.results[i].student_phone_number %></td>
+                                    <td data-label="วันที่ออก"><%= data.results[i].leave_date %></td>
+                                    <td data-label="วันที่เข้า"><%= data.results[i].come_date %></td>
+                                    <td data-label="เบอร์ผู้ปกครอง"><%= data.results[i].parent_phone_number %></td>
+                                    
+                                    <td class="is-actions-cell">
+                                        <div class="buttons is-right">
+                                            <button class="button is-small is-primary" type="button" onclick="showMore('<%= data.results[i].id %>')">
+                                                <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+                                            </button>
+                                            <button class="button is-small is-danger" type="button" onclick="deleteForm('<%= data.results[i].id %>')">
+                                                <span class="icon"><i class="fa-solid fa-trash"></i></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            <% } %>
+                            <!-- สร้าง ข้อมูลในตาราง End -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<script src="../js/view_all_form_history_page.js"></script>
