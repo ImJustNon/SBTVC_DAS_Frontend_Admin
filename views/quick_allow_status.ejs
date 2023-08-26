@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[SBTVC-DAS] Quick Allow</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <script>
+        const status = '<%= status %>';
+        const error = '<%= error %>';
+
+        Swal.fire({
+            title: status === "SUCCESS" ? "อัปเดตสำเร็จ" : "อัปเดตไม่สำเร็จ",
+            text: status === "SUCCESS" ? 'สามารถกดปุ่มเพื่อไปหน้าหลัก' : error,
+            icon: status === "SUCCESS" ? 'success' : 'error',
+        }).then(() =>{
+            window.location.replace("/");
+        });
+    </script>
+</body>
+</html>
