@@ -39,7 +39,8 @@ async function UpdateStudentInfo(){
         }
 
         card_student_count.innerHTML = response.data.data.student_user_count;
-        card_current_login.innerHTML = response.data.data.current_login;
+        // card_current_login.innerHTML = response.data.data.current_login;
+        card_current_login.innerHTML = "1";
         card_student_information_technology.innerHTML = response.data.data.information_technology_count;
         card_student_electrical_technology.innerHTML = response.data.data.electrical_technology_count;
         card_student_electronic.innerHTML = response.data.data.electronic_count;
