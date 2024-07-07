@@ -1,7 +1,7 @@
 
 async function UpdateOutLocationAuth(student_id, status){
     try{
-        const response = await axios.post('https://sbtvc-das-api.nonlnwza.xyz/api/admin/form/update_form/update_out_location_auth', {
+        const response = await axios.post('http://127.0.0.1:808/api/admin/form/update_form/update_out_location_auth', {
             student_id: student_id,
             status: status,
         }, {
@@ -27,7 +27,7 @@ async function UpdateOutLocationAuth(student_id, status){
 
 async function UpdateAllow(student_id, status){
     try{
-        const response = await axios.post('https://sbtvc-das-api.nonlnwza.xyz/api/admin/form/update_allow', {
+        const response = await axios.post('http://127.0.0.1:808/api/admin/form/update_allow', {
             student_id: student_id,
             update_status: status,
         }, {
@@ -53,7 +53,7 @@ async function UpdateAllow(student_id, status){
 
 async function UpdateInLocationAuth(student_id, status){
     try{
-        const response = await axios.post('https://sbtvc-das-api.nonlnwza.xyz/api/admin/form/update_form/update_in_location_auth', { 
+        const response = await axios.post('http://127.0.0.1:808/api/admin/form/update_form/update_in_location_auth', { 
             student_id: student_id,
             status: status,
         }, {
@@ -89,7 +89,7 @@ async function UpdateConfirmBackin(student_id, status){
             confirmButtonText: 'ยืนยัน'
         }).then(async(result) => {
             if (result.isConfirmed) {
-                const response = await axios.post('https://sbtvc-das-api.nonlnwza.xyz/api/form/update_backin', {
+                const response = await axios.post('http://127.0.0.1:808/api/form/update_backin', {
                     student_id: student_id,
                 }, {
                     headers: {
@@ -120,7 +120,7 @@ async function UpdateConfirmBackin(student_id, status){
 
 
 async function exportPdf(student_id){
-    const response = await axios.get(`https://sbtvc-das-api.nonlnwza.xyz/api/form/check_send_form_history?student_id=${student_id}`);
+    const response = await axios.get(`http://127.0.0.1:808/api/form/check_send_form_history?student_id=${student_id}`);
     if(response.data.status === "FAIL"){
         notyf.error(response.data.error);
         console.log(response.data.error);

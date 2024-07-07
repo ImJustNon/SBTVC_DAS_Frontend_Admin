@@ -8,7 +8,7 @@ const axios = require("axios");
 
 router.get("/p/view-all-form", check_login, async(req, res) =>{
     try{
-        const response = await axios.post('https://sbtvc-das-api.nonlnwza.xyz/api/admin/form/get_form_data', {
+        const response = await axios.post('http://127.0.0.1:808/api/admin/form/get_form_data', {
             filter: "NO_FILTER",
         }, {
             headers: {
