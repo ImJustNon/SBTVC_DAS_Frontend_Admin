@@ -16,7 +16,7 @@ router.get("/p/users", check_login, async(req, res) =>{
         });
     }
 
-    const { data } = await axios.get(`http://127.0.0.1:808/api/users/branch/${branch}`);
+    const { data } = await axios.get(`https://sbtvc-das-backend-2.vercel.app/api/users/branch/${branch}`);
     const users_data = data.status === "SUCCESS" ? data.data.results : [];
 
 

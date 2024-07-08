@@ -8,7 +8,7 @@ const axios = require("axios");
 
 router.get("/p/view-all-form-history", check_login, async(req, res) =>{
     try{
-        const response = await axios.post('http://127.0.0.1:808/api/admin/form/get_home_form_history_data', {
+        const response = await axios.post('https://sbtvc-das-backend-2.vercel.app/api/admin/form/get_home_form_history_data', {
         }, {
             headers: {
                 'Content-Type': 'application/json'
