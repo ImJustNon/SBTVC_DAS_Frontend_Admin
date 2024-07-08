@@ -1,7 +1,7 @@
 async function UpdateAllow(student_id, update_status){
     // axios.post("", )
     try{
-        const response = await axios.post('http://127.0.0.1:808/api/admin/form/update_allow', {
+        const response = await axios.post('https://sbtvc-das-backend-2.vercel.app/api/admin/form/update_allow', {
             student_id: student_id,
             update_status: update_status, 
         }, {

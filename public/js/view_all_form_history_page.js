@@ -1,7 +1,7 @@
 async function showMore(id){
     if(!id) return;
     try{
-        const response = await axios.post(`http://127.0.0.1:808/api/admin/form/get_home_form_history_data`, {
+        const response = await axios.post(`https://sbtvc-das-backend-2.vercel.app/api/admin/form/get_home_form_history_data`, {
             form_id: id,
         }, {
             headers: {
@@ -63,7 +63,7 @@ async function deleteForm(id){
             confirmButtonText: 'ยืนยัน'
         }).then(async(result) => {
             if (result.isConfirmed) {
-                const response = await axios.post(`http://127.0.0.1:808/api/admin/form/delete_home_form_history_data`, {
+                const response = await axios.post(`https://sbtvc-das-backend-2.vercel.app/api/admin/form/delete_home_form_history_data`, {
                     form_id: id,
                 }, {
                     headers: {

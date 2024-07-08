@@ -13,7 +13,7 @@ const remove_user_btn = document.getElementById("remove_user_btn");
 // add user
 add_user_btn.addEventListener("click", async() =>{
     try{
-        const response = await axios.post('http://127.0.0.1:808/api/users/add_student_user', {
+        const response = await axios.post('https://sbtvc-das-backend-2.vercel.app/api/users/add_student_user', {
             secret_key: "nonlnwza",
             student_prefix: input_add_student_prefix.value,
             student_id: input_add_student_id.value,
@@ -54,7 +54,7 @@ remove_user_btn.addEventListener("click", async() =>{
     }).then(async confirm =>{
         if(confirm){
             try{
-                const response = await axios.post('http://127.0.0.1:808/api/users/remove_student_user', {
+                const response = await axios.post('https://sbtvc-das-backend-2.vercel.app/api/users/remove_student_user', {
                     secret_key: "nonlnwza",
                     student_id: input_remove_student_id.value,
                 }, {
